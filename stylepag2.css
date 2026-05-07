@@ -1,0 +1,146 @@
+:root {
+    --bg: #000000;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --accent: #444444;
+    --hover: #666666;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+nav ul { display: flex; list-style: none; gap: 40px; }
+nav a { color: white; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+nav a:hover { color: var(--text-secondary); }
+
+body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+/* Nav */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+nav ul { display: flex; list-style: none; gap: 30px; }
+nav a { color: white; text-decoration: none; font-size: 0.9rem; }
+
+/* Estado inicial da página (invisível) */
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Classe que será adicionada via JS para mostrar a página */
+body.page-loaded {
+    opacity: 1;
+}
+
+/* Classe para o efeito de saída */
+body.fade-out {
+    opacity: 0;
+}
+/* Container dos Projetos */
+.projects-section {
+    padding: 120px 10%;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* O Card */
+.project-card {
+    background: #0a0a0a; /* Tom levemente mais claro que o fundo puro */
+    border: 1px solid #222;
+    overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--text-secondary);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+}
+
+/* Imagem do Card */
+.card-image {
+    width: 100%;
+    height: 200px;
+    background: #111;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
+
+.project-card:hover .card-image img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* Conteúdo do Card */
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    font-size: 1.5rem !important; /* Tamanho proporcional ao card */
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.card-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.card-tags span {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border: 1px solid var(--accent);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+.view-link {
+    display: inline-block;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-bottom: 1px solid var(--accent);
+    transition: 0.3s;
+}
+
+.view-link:hover {
+    border-bottom-color: white;
+    letter-spacing: 1px;
+}
+footer { padding: 50px 10%; text-align: center; color: #333; font-size: 0.8rem; }

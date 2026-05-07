@@ -1,0 +1,196 @@
+:root {
+    --bg: #000000;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --accent: #444444;
+    --hover: #666666;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+nav ul { display: flex; list-style: none; gap: 40px; }
+nav a { color: white; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+nav a:hover { color: var(--text-secondary); }
+
+body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+/* Nav */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+nav ul { display: flex; list-style: none; gap: 30px; }
+nav a { color: white; text-decoration: none; font-size: 0.9rem; }
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 50px;
+}
+
+.hero-text { flex: 1; text-align: left; }
+.hero-text h1 { font-size: clamp(3rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 20px; }
+
+.section-title {
+    font-size: 1.9rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 5px;
+    margin-bottom: 60px;
+    font-weight: 800;
+    text-align: left;
+}
+.biography-info h3 {
+    font-size: 2.6rem;
+    letter-spacing: -1px;
+}
+.device-box { flex: 1; display: flex; justify-content: flex-end; }
+.hero-device { 
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 30px rgba(255,255,255,0.1));
+}
+
+/* Estilos de animação ao rolar (Scroll Reveal) */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Botão e Tipografia */
+#typing-text { font-size: 1.5rem; color: var(--text-secondary); min-height: 1.6em; }
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 40px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.biography { padding: 100px 10%; border-top: 1px solid #111; }
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .hero-content { flex-direction: column-reverse; text-align: center; }
+    .hero-text { text-align: center; }
+    .device-box { justify-content: center; }
+}
+
+
+.skills-list {
+     background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+footer { padding: 50px 10%; text-align: center; color: #333; font-size: 0.8rem; }
+
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 5%;
+    }
+    
+    nav ul {
+        gap: 20px; /* Diminui o espaço entre os links */
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: auto; /* Permite que a seção cresça com o conteúdo */
+        padding: 120px 5% 60px 5%;
+    }
+
+    .hero-content {
+        flex-direction: column-reverse; /* Imagem em cima, texto embaixo */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.8rem; /* Reduz o nome para caber em uma linha */
+        letter-spacing: -1px;
+    }
+
+    .device-box {
+        justify-content: center;
+    }
+
+    .hero-device {
+        max-width: 80%; /* Evita que a imagem fique gigante no mobile */
+    }
+}
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.6rem; /* H2 menor no mobile */
+        margin-bottom: 30px;
+    }
+
+    .biography-info h3, 
+    .card-content h3 {
+        font-size: 1.8rem !important; /* H3 proporcional */
+    }
+
+    .biography {
+        padding: 60px 5%; /* Menos recuo lateral */
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Força uma única coluna */
+        gap: 20px;
+    }
+
+    .project-card {
+        margin-bottom: 10px;
+    }
+    
+    .btn {
+        width: 100%; /* Botão biografia ocupa a largura toda no celular */
+        text-align: center;
+    }
+}
